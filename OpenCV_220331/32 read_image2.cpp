@@ -20,32 +20,30 @@ void print_matInfo(string name, Mat m) {
 };
 
 int main() {
-	string filename = "image/read_gray.jpg";			// 영상 파일 위치
-	// 영상 파일 로드
-	Mat gray2gray = imread(filename, IMREAD_GRAYSCALE);		// 1채널 uchar(CV_8UC1) 행렬 생성
-	Mat gray2color = imread(filename, IMREAD_COLOR);		// 3채널 CV_8UC1 행렬 생성(컬러타입 변환)
-	CV_Assert(gray2gray.data && gray2color.data);		// 예외 처리
+	string filename = "image/read_color.jpg";			// 영상 파일 위치
+	Mat color2gray = imread(filename, IMREAD_GRAYSCALE);	// 1채널 uchar(CV_8UC1) 행렬로 변환
+	Mat color2color = imread(filename, IMREAD_COLOR);		// 3채널 행렬
+	CV_Assert(color2gray.data && color2color.data);		// 예외 처리
 
 	int x = 100, y = 100;
 
 	while (x <= 105) {
 		Rect roi(x, y, 1, 1);		// 행렬 내 한 화소 사각형을 관심영역으로 참조하여 한 화소의 값을 확인
-		
+
 		cout << "행렬 좌표 (" << x << "," << y << ") 화소값 " << endl;
-		cout << "gray2gray " << gray2gray(roi) << endl;
-		cout << "gray2color " << gray2color(roi) << endl <<endl;
+		cout << "color2gray " << color2gray(roi) << endl;
+		cout << "color2color " << color2color(roi) << endl << endl;
 
 		x += 1;y += 1;
 	}
 
 	// 행렬 정보 출력
-	print_matInfo("gray2gray", gray2gray);
-	print_matInfo("gray2color", gray2color);
+	print_matInfo("color2gray", color2gray);
+	print_matInfo("color2color", color2color);
 
 	// 행렬 정보 영상으로 표시
-	imshow("gray2gray", gray2gray);
-	imshow("gray2color", gray2color);
-
+	imshow("color2gray", color2gray);
+	imshow("color2color", color2color);
 	return 0;
 }
 

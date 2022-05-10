@@ -11,6 +11,7 @@ int main() {
 	imshow("마우스 이벤트2", image);
 
 	setMouseCallback("마우스 이벤트1", onMouse, 0);	// "마우스 이벤트1" 창에 마우스 제어를 위한 콜백함수를 등록시킨다.
+	setMouseCallback("마우스 이벤트2", onMouse, 0);	// "마우스 이벤트1" 창에 마우스 제어를 위한 콜백함수를 등록시킨다.
 	waitKey(0);
 
 	return 0;

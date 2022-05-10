@@ -8,8 +8,8 @@ int main() {
 	imshow("키보드 이벤트", image);
 
 	while (1) {
-		int key = waitKey(100);
-		if (key == 27) break;
+		int key = waitKey(100);		// 100ms동안 키 이벤트 대기
+		if (key == 27) break;		// ESC 키가 입력되면 종료
 
 		switch (key) {
 		case 'a':cout << "a키 입력" << endl;break;
